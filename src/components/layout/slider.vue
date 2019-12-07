@@ -1,18 +1,18 @@
 <template>
   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu unique-opened router>
-      <div v-for="(router,index) in routers" :key="index">
-        <el-submenu :key="index" :index="router.name">
+    <el-menu unique-opened router :collapse="false">
+      <div v-for="(route,index) in routers" :key="index">
+        <el-submenu :index="route.name">
           <template slot="title">
-            <i :class="router.meta.icon"></i>
-            {{router.meta.name}}
+            <i :class="route.meta.icon"></i>
+            {{route.meta.name}}
           </template>
           <el-menu-item
-            v-for="(childRouter, childIndex) in router.children"
+            v-for="(childRoute, childIndex) in route.children"
             :key="childIndex"
-            :index="childRouter.name"
-            :route="childRouter"
-          >{{childRouter.meta.name}}</el-menu-item>
+            :index="childRoute.name"
+            :route="childRoute"
+          >{{childRoute.meta.name}}</el-menu-item>
         </el-submenu>
       </div>
     </el-menu>

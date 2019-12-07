@@ -1,5 +1,26 @@
 export default [
     {
+        path: '/settings',
+        name: 'settings',
+        meta: {
+            name: '基础设置',
+            auth: false,
+            icon: 'el-icon-s-tools'
+        },
+        component: () => import('../views/common/abstract.vue'),
+        children: [
+            {
+                path: 'user',
+                name: 'user',
+                meta: {
+                    name: '个人中心',
+                    auth: false
+                },
+                component: () => import('../views/settings/user.vue')
+            }
+        ]
+    },
+    {
         path: '/goods',
         name: 'goods',
         meta: {
@@ -38,27 +59,6 @@ export default [
                     auth: false
                 },
                 component: () => import('../views/orders/order-list.vue')
-            }
-        ]
-    },
-    {
-        path: '/settings',
-        name: 'settings',
-        meta: {
-            name: '基础设置',
-            auth: false,
-            icon: 'el-icon-s-tools'
-        },
-        component: () => import('../views/common/abstract.vue'),
-        children: [
-            {
-                path: 'user',
-                name: 'user',
-                meta: {
-                    name: '个人中心',
-                    auth: false
-                },
-                component: () => import('../views/settings/user.vue')
             }
         ]
     }
